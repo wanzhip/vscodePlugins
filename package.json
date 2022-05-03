@@ -1,0 +1,110 @@
+{
+  "name": "fetools",
+	"displayName": "FETools",
+	"description": "",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.66.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+        "onCommand:fetools.helloWorld",
+		"onLanguage:vue",
+		"onView:edu-tools"
+	],
+	"main": "./dist/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "fetools.helloWorld",
+				"title": "Hello World"
+			},
+			{
+				"command": "openPanel",
+				"title": "FETools"
+			}
+		],
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "tools",
+					"title": "FETools",
+					"icon": "a-fCar.svg"
+				}
+			]
+		},
+		"views": {
+			"tools": [
+				{
+					"id": "edu-tools",
+					"name": "学习资料"
+				}
+			]
+		},
+		"configuration": {
+			"type": "object",
+			"title": "Element Vue Helper Configuration",
+			"properties": {
+				"element-vue-helper.indent-size": {
+					"type": "number",
+					"default": 2,
+					"description": "缩进"
+				},
+				"element-vue-helper.double-quotes": {
+					"type": "boolean",
+					"default": true,
+					"description": "是否使用双引号？取消选择使用单引号"
+				},
+				"element-vue-helper.trailing-comma": {
+					"type": "boolean",
+					"default": true,
+					"description": ""
+				},
+				"element-vue-helper.doc-url": {
+					"type": "string",
+					"default": "https://element-plus.gitee.io/zh-CN/guide/quickstart.html#%E5%AE%8C%E6%95%B4%E5%BC%95%E5%85%A5",
+					"description": "Element文档地址，配置好之后可以使用cmd+shirft+s命令在VSCode中打开文档地址"
+				}
+			}
+		},
+		"snippets": [
+			{
+				"language": "vue",
+				"path": "./src/snippets/vue.json"
+			},
+			{
+				"language": "typescript",
+				"path": "./src/snippets/ts.json"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "yarn run package",
+		"compile": "webpack",
+		"watch": "webpack --watch",
+		"package": "webpack --mode production --devtool hidden-source-map",
+		"compile-tests": "tsc -p . --outDir out",
+		"watch-tests": "tsc -p . -w --outDir out",
+		"pretest": "yarn run compile-tests && yarn run compile && yarn run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.66.0",
+		"@types/glob": "^7.2.0",
+		"@types/mocha": "^9.1.1",
+		"@types/node": "14.x",
+		"@typescript-eslint/eslint-plugin": "^5.21.0",
+		"@typescript-eslint/parser": "^5.21.0",
+		"eslint": "^8.14.0",
+		"glob": "^8.0.1",
+		"mocha": "^9.2.2",
+		"typescript": "^4.6.4",
+		"ts-loader": "^9.2.8",
+		"webpack": "^5.70.0",
+		"webpack-cli": "^4.9.2",
+		"@vscode/test-electron": "^2.1.3"
+	}
+}

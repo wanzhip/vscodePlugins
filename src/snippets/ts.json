@@ -1,0 +1,50 @@
+{
+  "Print to script": {
+		"scope": "javascript,typescript,vue",
+		"prefix": "vues",
+		"body": [
+			"<template>",
+			"	<div>",
+			"		$1",
+			"	</div>",
+			"</template>",
+
+			"<script lang='ts'>",
+			"import { Vue, Component } from 'vue-property-decorator';",
+			"$2",
+			"@Component({",
+			"	components: {}",
+			"})",
+			"export default class Create extends Vue {",
+			"	$3",
+			"};",
+			"</script>",
+			"$4"
+		],
+		"description": "vue snippets"
+	},
+  "Print to css": {
+		"scope": "javascript,typescript,vue",
+		"prefix": "scss",
+		"body": [
+			"<style scoped lang='scss'>",
+			"$1",
+			"</style>",
+			"$2"
+		],
+		"description": "css snippets"
+	},
+	"Print to template": {
+		"scope": "javascript,typescript,vue",
+		"prefix": "template",
+		"body": [
+			"<template>",
+			"	<div>",
+			"		$1",
+			"	</div>",
+			"</template>",
+			"$2"
+		],
+		"description": "template snippets"
+	}
+}
