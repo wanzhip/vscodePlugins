@@ -7,7 +7,7 @@ import { completion } from './uiComponent/completion';
 export function activate(context: vscode.ExtensionContext) {
 
 	console.log('Congratulations, your extension "fetools" is now active!');
-
+	vscode.window.showInformationMessage('欢迎使用FETools!');
 	renderSideBar();
 	vscode.commands.registerCommand('edu-tools.handleClickItem', (url, title, isOpenBrowser) => {
         sideBarClick(url, title, isOpenBrowser);
@@ -15,8 +15,9 @@ export function activate(context: vscode.ExtensionContext) {
 
 	completion(context);
 
-	context.subscriptions.push(vscode.commands.registerCommand('openPanel', async () => {
-        createWebview(context.extensionPath);
+	context.subscriptions.push(vscode.commands.registerCommand('openWebview', async () => {
+        console.log('执行');
+		createWebview(context.extensionPath);
     }));
 
     // context.subscriptions.push(vscode.commands.registerCommand('openCfgPanel', async () => {

@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
-import { vscode } from '../utils/vscode';
+// import { vscode } from '../utils/vscode';
+const vscode = window.acquireVsCodeApi();
 defineProps({
   msg: String
 })

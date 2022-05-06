@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { uiItems, flowItems, eduItems } from '../utils/constants';
+import { uiItems, flowItems, eduItems } from './constants';
 
 export class SideBarItem extends vscode.TreeItem {
     constructor(

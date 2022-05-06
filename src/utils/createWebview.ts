@@ -54,6 +54,9 @@ export const createWebview = async (extensionPath: any) => {
         cfgObj: {
             fileName,
             appkey,
+            extensionPath: panel.webview.asWebviewUri(vscode.Uri.file(
+                join(extensionPath, 'fevue3/src/assets', ''),
+            )),
         },
     });
     // panel.webview.onDidReceiveMessage(messageHandler(panel.webview));

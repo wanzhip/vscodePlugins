@@ -59,6 +59,7 @@ const createWebview = async (extensionPath) => {
         cfgObj: {
             fileName,
             appkey,
+            extensionPath: panel.webview.asWebviewUri(vscode.Uri.file((0, path_1.join)(extensionPath, 'fevue3/src/assets', ''))),
         },
     });
     // panel.webview.onDidReceiveMessage(messageHandler(panel.webview));
@@ -843,12 +844,14 @@ const sideBarClick_1 = __webpack_require__(7);
 const completion_1 = __webpack_require__(8);
 function activate(context) {
     console.log('Congratulations, your extension "fetools" is now active!');
+    vscode.window.showInformationMessage('欢迎使用FETools!');
     (0, renderSideBar_1.renderSideBar)();
     vscode.commands.registerCommand('edu-tools.handleClickItem', (url, title, isOpenBrowser) => {
         (0, sideBarClick_1.sideBarClick)(url, title, isOpenBrowser);
     });
     (0, completion_1.completion)(context);
-    context.subscriptions.push(vscode.commands.registerCommand('openPanel', async () => {
+    context.subscriptions.push(vscode.commands.registerCommand('openWebview', async () => {
+        console.log('执行');
         (0, createWebview_1.createWebview)(context.extensionPath);
     }));
     // context.subscriptions.push(vscode.commands.registerCommand('openCfgPanel', async () => {

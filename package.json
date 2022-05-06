@@ -3,6 +3,7 @@
 	"displayName": "FETools",
 	"description": "",
 	"version": "0.0.1",
+	"publisher": "wanzp",
 	"engines": {
 		"vscode": "^1.66.0"
 	},
@@ -12,7 +13,8 @@
 	"activationEvents": [
         "onCommand:fetools.helloWorld",
 		"onLanguage:vue",
-		"onView:edu-tools"
+		"onView:edu-tools",
+		"onCommand:openWebview"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
@@ -22,7 +24,7 @@
 				"title": "Hello World"
 			},
 			{
-				"command": "openPanel",
+				"command": "openWebview",
 				"title": "FETools"
 			}
 		],
@@ -40,6 +42,22 @@
 				{
 					"id": "edu-tools",
 					"name": "学习资料"
+				}
+			]
+		},
+		"keybindings": [
+			{
+				"command": "openDoc",
+				"key": "shift+cmd+i",
+				"when": "editorTextFocus"
+			}
+		],
+		"menus": {
+			"editor/title": [
+				{
+					"command": "openWebview",
+					"when": "true",
+					"group": "navigation"
 				}
 			]
 		},
