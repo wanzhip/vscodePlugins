@@ -2,7 +2,7 @@
   "name": "fetools",
 	"displayName": "FETools",
 	"description": "",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"publisher": "wanzp",
 	"engines": {
 		"vscode": "^1.66.0"
@@ -50,6 +50,11 @@
 				"command": "openDoc",
 				"key": "shift+cmd+i",
 				"when": "editorTextFocus"
+			},
+			{
+				"command": "fetools.helloWorld",
+				"key": "cmd+i",
+				"when": "editorTextFocus"
 			}
 		],
 		"menus": {
@@ -94,7 +99,11 @@
 			},
 			{
 				"language": "typescript",
-				"path": "./src/snippets/ts.json"
+				"path": "./src/snippets/react.json"
+			},
+			{
+				"language": "typescriptreact",
+				"path": "./src/snippets/react.json"
 			}
 		]
 	},
